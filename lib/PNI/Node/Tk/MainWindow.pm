@@ -1,15 +1,19 @@
 package PNI::Node::Tk::MainWindow;
 
-#BEGIN { require PNI::Node , @ISA = ( 'PNI::Node' ) }
+use 5.010001;
+use strict;
+use warnings;
+
+our $VERSION = '0.01';
 
 our @ISA = ( 'PNI::Node' );
 
 use Tk;
-my $responsiveness = 10;
 
 sub init {
     my $node = shift;
     #$node->has_input( on_close => sub{ Tk::exit } );
+    $node->has_input( responsiveness => 10 );
     $node->has_output( main_window => new MainWindow );
 }
 
@@ -18,7 +22,7 @@ sub task {
 
     #$node->output->{main_window}->protocol( 'WM_DELETE_WINDOW' => $node->input->{on_close} );
 
-    &DoOneEvent for ( 0 .. $responsiveness );
+    &DoOneEvent for ( 0 .. $node->input->{responsiveness} );
 }
 
 1;
@@ -27,6 +31,14 @@ __END__
 =head1 NAME
 
 PNI::Node::Tk::MainWindow
+
+=head1 DESCRIPTION
+
+Every Tk program must have at least one MainWindow. 
+That's why this node also handles Tk events so there is no need to call the Tk MainLoop.
+Thanks to Nick Ing-Simmons in Perl/Tk can co-exist multiple MainWindows, so
+it is possible to create more than one Tk::MainWindow PNI node,
+but normally just one should be enough.
 
 =head1 AUTHOR
 

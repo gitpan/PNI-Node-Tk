@@ -1,10 +1,13 @@
 package PNI::Node::Tk::Canvas::CanvasBind;
-our $VERSION = '0.0.1';
-BEGIN { require PNI::Node , @ISA = ( 'PNI::Node' ) }
 
-#-------
-#
-#-------
+use 5.010001;
+use strict;
+use warnings;
+
+our $VERSION = '0.01';
+
+our @ISA = ( 'PNI::Node' );
+
 sub init {
     my $node = shift;
     
@@ -15,16 +18,13 @@ sub init {
     $node->has_input( 'do_bind' => 0 );
 }
 
-#-------
-#
-#-------
 sub task {
     my $node = shift;
     
     if( $node->input->{do_bind} ) {
 
-        return unless defined $node->input->{canvas}
-            and $node->input->{canvas}->isa( 'Tk::Canvas' );
+        return unless defined $node->input->{canvas};
+        #and $node->input->{canvas}->isa( 'Tk::Canvas' );
 
         # TODO aggiungi anche la possibilità di passare argomenti.
         #$node->input->{canvas}->CanvasBind( $node->input->{event_name}, [ sub { $node->input->{code_ref} }, @{ $node->input->{args} } ] );

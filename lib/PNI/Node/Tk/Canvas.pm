@@ -1,8 +1,12 @@
 package PNI::Node::Tk::Canvas;
 
-BEGIN { require PNI::Node , @ISA = ( 'PNI::Node' ) }
+use 5.010001;
+use strict;
+use warnings;
 
-my $created = 0;
+our $VERSION = '0.01';
+
+our @ISA = ( 'PNI::Node' );
 
 sub init {
     my $node = shift;
@@ -10,18 +14,19 @@ sub init {
     $node->has_input( configure => {} );
     $node->has_input( pack_options => {} );
 
-    $node->has_output( canvas );
+    $node->has_output( canvas => undef );
 }
 
 sub task {
     my $node = shift;
 
-    if( defined $node->input->{window} and not $created ) {
+    if( defined $node->input->{window} and 
+        not defined $node->output->{canvas} 
+    ) {
         $node->output->{canvas} = $node->input->{window}->Canvas();
         	       	
         $node->output->{canvas}->configure( %{ $node->input->{configure} } );
         $node->output->{canvas}->pack( %{ $node->input->{pack_options} } );
-        $created = 1;
     }
 }
 

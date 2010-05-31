@@ -1,7 +1,9 @@
 
+$VERSION = '0.02'
+
 =head1 NAME
 
-PNI::Node::Tk
+PNI::Node::Tk - PNI Tk nodes
 
 =head1 DESCRIPTION
 
