@@ -1,5 +1,5 @@
 
-$VERSION = '0.02'
+$VERSION = '0.03'
 
 =head1 NAME
 
@@ -8,6 +8,10 @@ PNI::Node::Tk - PNI Tk nodes
 =head1 DESCRIPTION
 
 PNI node collection to access the Tk graphical user interface toolkit.
+
+=head1 SEE ALSO
+
+PNI PNI::Node::Tk::MainWindow
 
 =head1 AUTHOR
 
@@ -22,5 +26,4 @@ it under the same terms as Perl itself, either Perl version 5.10.1 or,
 at your option, any later version of Perl 5 you may have available.
 
 =cut
-
 

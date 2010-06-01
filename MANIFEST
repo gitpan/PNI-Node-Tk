@@ -3,6 +3,7 @@ Makefile.PL
 MANIFEST
 README
 t/PNI-Node-Tk.t
+t/nodes.t
 lib/PNI/Node/Tk.pod
 lib/PNI/Node/Tk/Canvas.pm
 lib/PNI/Node/Tk/Canvas/CanvasBind.pm

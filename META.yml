@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               PNI-Node-Tk
-version:            0.02
+version:            0.03
 abstract:           PNI Tk nodes
 author:
     - G. Casati <fibo@cpan.org>

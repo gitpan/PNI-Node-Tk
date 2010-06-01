@@ -1,6 +1,5 @@
 package PNI::Node::Tk::Canvas;
 
-use 5.010001;
 use strict;
 use warnings;
 
@@ -21,10 +20,9 @@ sub task {
     my $node = shift;
 
     if( defined $node->input->{window} and 
-        not defined $node->output->{canvas} 
-    ) {
+        not defined $node->output->{canvas} ) {
         $node->output->{canvas} = $node->input->{window}->Canvas();
-        	       	
+ 
         $node->output->{canvas}->configure( %{ $node->input->{configure} } );
         $node->output->{canvas}->pack( %{ $node->input->{pack_options} } );
     }
