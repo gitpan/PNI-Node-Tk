@@ -3,28 +3,28 @@ package PNI::Node::Tk::Canvas;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = $PNI::Node::Tk::VERSION;
 
 our @ISA = ( 'PNI::Node' );
 
 sub init {
     my $node = shift;
-    $node->has_input( window => undef );
-    $node->has_input( configure => {} );
-    $node->has_input( pack_options => {} );
+    $node->add_input( window => undef );
+    $node->add_input( configure => {} );
+    $node->add_input( pack_options => {} );
 
-    $node->has_output( canvas => undef );
+    $node->add_output( canvas => undef );
 }
 
 sub task {
     my $node = shift;
 
-    if( defined $node->input->{window} and 
-        not defined $node->output->{canvas} ) {
-        $node->output->{canvas} = $node->input->{window}->Canvas();
+    if( defined $node->get_input('window') and 
+        not defined $node->get_output('canvas') ) {
+        $node->get_output('canvas') = $node->get_input('window')->Canvas();
  
-        $node->output->{canvas}->configure( %{ $node->input->{configure} } );
-        $node->output->{canvas}->pack( %{ $node->input->{pack_options} } );
+        $node->get_output('canvas')->configure( %{ $node->get_input('configure') } );
+        $node->get_output('canvas')->pack( %{ $node->get_input('pack_options') } );
     }
 }
 

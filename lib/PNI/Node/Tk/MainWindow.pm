@@ -3,7 +3,7 @@ package PNI::Node::Tk::MainWindow;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = $PNI::Node::Tk::VERSION;
 
 our @ISA = ( 'PNI::Node' );
 
@@ -11,17 +11,14 @@ use Tk;
 
 sub init {
     my $node = shift;
-    #$node->has_input( on_close => sub{ Tk::exit } );
-    $node->has_input( responsiveness => 10 );
-    $node->has_output( main_window => new MainWindow );
+    $node->add_input( responsiveness => 10 );
+    $node->add_output( main_window => new MainWindow );
 }
 
 sub task {
     my $node = shift;
 
-    #$node->output->{main_window}->protocol( 'WM_DELETE_WINDOW' => $node->input->{on_close} );
-
-    &DoOneEvent for ( 0 .. $node->input->{responsiveness} );
+    &DoOneEvent for ( 0 .. $node->get_input('responsiveness') );
 }
 
 1;
@@ -48,8 +45,7 @@ G. Casati , E<lt>fibo@cpan.orgE<gt>
 Copyright (C) 2010 by G. Casati
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.10.1 or,
-at your option, any later version of Perl 5 you may have available.
+it under the same terms as Perl itself.
 
 =cut
 
