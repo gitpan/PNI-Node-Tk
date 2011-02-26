@@ -1,24 +1,24 @@
 package PNI::Node::Tk::MainWindow;
-
 use strict;
 use warnings;
-
-our $VERSION = $PNI::Node::Tk::VERSION;
-
-our @ISA = ( 'PNI::Node' );
-
+our $VERSION = '0.1';
+use base 'PNI::Node';
 use Tk;
 
 sub init {
     my $node = shift;
-    $node->add_input( responsiveness => 10 );
-    $node->add_output( main_window => new MainWindow );
+    $node->add_input( 'responsiveness', data => 10 );
+    $node->add_output( 'main_window', data => new MainWindow );
+
+    return 1;
 }
 
 sub task {
     my $node = shift;
 
-    &DoOneEvent for ( 0 .. $node->get_input('responsiveness') );
+    &DoOneEvent for ( 0 .. $node->get_input('responsiveness')->get_data );
+
+    return 1;
 }
 
 1;

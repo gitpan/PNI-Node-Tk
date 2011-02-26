@@ -1,5 +1,8 @@
 Revision history for Perl extension PNI::Node::Tk.
 
+0.1   201102
+    - compatibility with PNI 0.1
+
 0.02  20100531
     - fixed failing Tk installation test
 0.01  20100508
