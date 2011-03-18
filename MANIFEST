@@ -1,15 +1,17 @@
 Changes
-lib/PNI/Node/Tk.pod
+lib/PNI/Node/Tk.pm
 lib/PNI/Node/Tk/Canvas.pm
 lib/PNI/Node/Tk/MainWindow.pm
 Makefile.PL
-MANIFEST			This list of files
+MANIFEST
+MANIFEST.SKIP
 README
+Roadmap
 t/__PNI-Node-Tk_classes.t
+t/_tk-canvas.t
+t/_tk-mainwindow.t
 t/all_critic_ok.t
 t/all_pod_coverage_ok.t
 t/all_pod_files_ok.t
 t/perlcriticrc
-t/tk-canvas.t
-t/tk-mainwindow.t
 META.yml                                 Module meta-data (added by MakeMaker)

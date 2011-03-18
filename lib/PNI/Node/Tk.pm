@@ -1,3 +1,7 @@
+package PNI::Node::Tk;
+use strict;
+our $VERSION = '0.11';
+1;
 
 =head1 NAME
 
