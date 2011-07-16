@@ -1,46 +1,84 @@
 package PNI::Node::Tk::Canvas;
 use strict;
 use warnings;
-our $VERSION = '0.1';
+our $VERSION = '0.12';
 use base 'PNI::Node';
 
 sub init {
     my $node = shift;
-    $node->add_input('parent');
-    $node->add_input('configure_opts');
-    $node->add_input('pack_opts');
 
-    $node->add_output('canvas');
+    my $parent = $node->add_input('parent');
+
+    my $configure_opts = $node->add_input('configure_opts');
+
+    my $pack_opts = $node->add_input('pack_opts');
+
+    my $canvas = $node->add_output('canvas');
+
+    $configure_opts->set_data( { -height => 200, -width => 300 } );
+
     return 1;
 }
 
 sub task {
     my $node = shift;
 
-    return unless $node->get_input('parent')->get_data;
+    my $parent = $node->get_input('parent');
 
-    if ( $node->get_output('canvas')->get_data ) { }
+    my $configure_opts = $node->get_input('configure_opts');
+
+    my $pack_opts = $node->get_input('pack_opts');
+
+    my $canvas = $node->get_output('canvas');
+
+    #TODO needs a lot of fixing, this is a very important node
+    #     since it let the user draw stuff
+
+    return 1 if $parent->is_undef;
+
+    if ( $canvas->is_undef ) { }
     else {
 
-        # input parent is a PNI::NOde::Tk::MainWindow
-        $node->get_output('canvas')
-          ->set_data(
-            $node->get_input('parent')->get_data->get_output('main_window')
-              ->get_data->Canvas() );
-    }
+        #my $tk_main_window = $parent->get_output('main_window')->get_data;
+        my $tk_main_window = $parent->data;
 
-   #    if ( $node->get_input('window')
-   #        and not defined $node->get_output('canvas') )
-   #    {
-   #        $node->set_output( canvas => $node->get_input('window')->Canvas() );
-   #
-   #    $node->get_output('canvas')
-   #      ->configure( %{ $node->get_input('configure') } );
-   #    $node->get_output('canvas')
-   #      ->pack( %{ $node->get_input('pack_options') } );
-   #}
+        my $tk_canvas = $tk_main_window->Canvas;
+        $canvas->set_data($tk_canvas);
+
+        $tk_canvas->configure( %{ $configure_opts->get_data } );
+
+        $tk_canvas->pack( %{ $pack_opts->get_data } );
+        print $tk_canvas;
+    }
 
     return 1;
 }
 
 1;
+
+=head1 NAME
+
+PNI::Node:: - renders stuff with Tk::Canvas
+
+
+=head1 INPUTS
+
+=over 4
+
+=item parent
+
+=item configure_opts
+
+=item pack_opts
+
+=back
+
+=head1 OUTPUTS
+
+=over 4
+
+=item canvas
+
+=back
+
+=cut
