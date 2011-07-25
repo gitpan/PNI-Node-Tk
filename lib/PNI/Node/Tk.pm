@@ -1,5 +1,30 @@
 package PNI::Node::Tk;
-use strict;
-use warnings;
-our $VERSION = '0.12';
+
+our $VERSION = '0.14';
+
 1;
+
+=head1 NAME
+
+PNI::Node::Tk - PNI node collection
+
+=head1 DESCRIPTION
+
+PNI node collection to access the Tk graphical user interface toolkit.
+
+=head1 NODES
+
+=over 4
+
+=item L<PNI::Node::Tk::Canvas>
+
+=item L<PNI::Node::Tk::Canvas::Rectangle>
+
+=item L<PNI::Node::Tk::Canvas::Text>
+
+=item L<PNI::Node::Tk::MainWindow>
+
+=back
+
+=cut
+

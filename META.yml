@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               PNI-Node-Tk
-version:            0.12
+version:            0.14
 abstract:           PNI node collection
 author:
     - G. Casati <fibo@cpan.org>
@@ -11,7 +11,7 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    PNI:  0.15
+    PNI:  0.16
     Tk:   804.029
 no_index:
     directory:

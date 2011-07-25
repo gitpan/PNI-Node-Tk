@@ -1,23 +1,17 @@
 Changes
 lib/PNI/Node/Tk.pm
-lib/PNI/Node/Tk.pod
 lib/PNI/Node/Tk/Canvas.pm
 lib/PNI/Node/Tk/Canvas/Rectangle.pm
 lib/PNI/Node/Tk/Canvas/Text.pm
 lib/PNI/Node/Tk/MainWindow.pm
 Makefile.PL
 MANIFEST
-MANIFEST.SKIP
 README
-t/___dependencies.t
 t/__classes.t
 t/_node-tk-canvas-rectangle.t
 t/_node-tk-canvas-text.t
 t/_node-tk-canvas.t
 t/_node-tk-mainwindow.t
-t/all_critic_ok.t
-t/all_pod_coverage_ok.t
 t/all_pod_files_ok.t
 t/every_node_has_a_test.t
-t/perlcriticrc
 META.yml                                 Module meta-data (added by MakeMaker)

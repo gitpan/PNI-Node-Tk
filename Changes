@@ -1,11 +1,18 @@
 Revision history for Perl extension PNI::Node::Tk.
 
-0.1   20110222
+0.14  2011-xx-xx
+    - removed templates
+    - fixed pods
+
+0.12  2011-06-21
+    - various improvements for PNI::GUI::Tk
+
+0.1   2011-02-22
     - compatibility with PNI 0.1
 
-0.02  20100531
+0.02  2010-05-31
     - fixed failing Tk installation test
-0.01  20100508
+0.01  2010-05-08
     - original version; created by h2xs 1.23 with options
     -XA -n PNI::Node::Tk
 

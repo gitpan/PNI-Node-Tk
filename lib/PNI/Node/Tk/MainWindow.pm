@@ -1,7 +1,6 @@
 package PNI::Node::Tk::MainWindow;
 use strict;
 use warnings;
-our $VERSION = '0.12';
 use base 'PNI::Node';
 use Tk;
 
@@ -35,16 +34,15 @@ sub task {
 
 =head1 NAME
 
-PNI::Node:: - creates a Tk main window
-
+PNI::Node::Tk::MainWindow - creates a Tk main window
 
 =head1 SYNOPSIS
 
-use PNI ':-D';
+    use PNI ':-D';
 
-node 'Tk::MainWindow';
+    node 'Tk::MainWindow';
 
-loop;
+    loop;
 
 =head1 DESCRIPTION
 
@@ -52,7 +50,6 @@ Every Tk program must have at least one MainWindow.
 That's why this node also handles Tk events so there is no need to call the Tk MainLoop.
 Thanks to Nick Ing-Simmons in Perl/Tk can co-exist multiple MainWindows, so
 it is possible to create more than one Tk::MainWindow PNI node.
-
 
 =head1 INPUTS
 
@@ -71,3 +68,4 @@ it is possible to create more than one Tk::MainWindow PNI node.
 =back
 
 =cut
+

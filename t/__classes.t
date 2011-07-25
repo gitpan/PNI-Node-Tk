@@ -2,10 +2,21 @@ use strict;
 use Test::More;
 
 BEGIN {
-    use_ok('PNI::Node::Tk');
-    use_ok('PNI::Node::Tk::MainWindow');
-    use_ok('PNI::Node::Tk::Canvas');
+    use_ok($_)
+      or BAIL_OUT(" $_ module does not compile :-(")
+      for qw(
+      PNI::Node::Tk
+      PNI::Node::Tk::Canvas::Rectangle
+      PNI::Node::Tk::Canvas::Text
+      PNI::Node::Tk::MainWindow
+    );
 }
 
-done_testing();
+isa_ok( $_, 'PNI::Node' ) for qw(
+  PNI::Node::Tk::Canvas::Rectangle
+  PNI::Node::Tk::Canvas::Text
+  PNI::Node::Tk::MainWindow
+);
+
+done_testing;
 

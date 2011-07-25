@@ -1,7 +1,6 @@
 package PNI::Node::Tk::Canvas::Text;
 use strict;
 use warnings;
-our $VERSION = '0.12';
 use base 'PNI::Node';
 
 sub init {
@@ -70,8 +69,7 @@ sub task {
 
 =head1 NAME
 
-PNI::Node:: - Text Tk::Canvas item
-
+PNI::Node::Tk::Canvas::Text - Text Tk::Canvas item
 
 =head1 INPUTS
 
@@ -96,3 +94,4 @@ PNI::Node:: - Text Tk::Canvas item
 =back
 
 =cut
+

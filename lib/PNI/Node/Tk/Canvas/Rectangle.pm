@@ -1,7 +1,6 @@
 package PNI::Node::Tk::Canvas::Rectangle;
 use strict;
 use warnings;
-our $VERSION = '0.12';
 use base 'PNI::Node';
 
 sub init {
@@ -16,6 +15,8 @@ sub init {
     my $x1 = $node->add_input('x1');
 
     my $x2 = $node->add_input('x2');
+
+    my $tk_id = $node->add_output('tk_id');
 
     return 1;
 }
@@ -40,8 +41,7 @@ sub task {
 
 =head1 NAME
 
-PNI::Node:: - Rectangle Tk::Canvas item
-
+PNI::Node::Tk::Canvas::Rectangle - Rectangle Tk::Canvas item
 
 =head1 INPUTS
 
@@ -63,6 +63,9 @@ PNI::Node:: - Rectangle Tk::Canvas item
 
 =over 4
 
+=item tk_id
+
 =back
 
 =cut
+

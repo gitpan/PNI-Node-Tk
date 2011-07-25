@@ -1,8 +1,9 @@
 package PNI::Node::Tk::Canvas;
 use strict;
 use warnings;
-our $VERSION = '0.12';
 use base 'PNI::Node';
+
+my $default_configure_opts = { -height => 200, -width => 300 } ;
 
 sub init {
     my $node = shift;
@@ -15,7 +16,7 @@ sub init {
 
     my $canvas = $node->add_output('canvas');
 
-    $configure_opts->set_data( { -height => 200, -width => 300 } );
+    $configure_opts->set_data( $default_configure_opts );
 
     return 1;
 }
@@ -58,8 +59,7 @@ sub task {
 
 =head1 NAME
 
-PNI::Node:: - renders stuff with Tk::Canvas
-
+PNI::Node::Tk::Canvas - renders stuff with Tk::Canvas
 
 =head1 INPUTS
 
@@ -82,3 +82,4 @@ PNI::Node:: - renders stuff with Tk::Canvas
 =back
 
 =cut
+
