@@ -1,7 +1,6 @@
 package PNI::Node::Tk::Canvas::Text;
 use strict;
-use warnings;
-use base 'PNI::Node';
+use parent 'PNI::Node';
 
 sub init {
     my $node = shift;
@@ -22,7 +21,11 @@ sub init {
 sub task {
     my $node = shift;
 
+    return 1 if $node->has_no_input_slot_changed;
+
     my $canvas = $node->get_input('canvas');
+    $canvas->is_defined or return 1;
+    my $tk_canvas = $canvas->get_data;
 
     my $y = $node->get_input('y');
 
@@ -32,9 +35,7 @@ sub task {
 
     my $tk_id = $node->get_output('tk_id');
 
-    my $tk_canvas = $canvas->get_data or return 1;
-
-    # initialize Text item
+    # Initialize Text item.
     if (    $tk_id->is_undef
         and $y->is_defined
         and $x->is_defined
@@ -48,9 +49,11 @@ sub task {
         $tk_id->set_data($tk_canvas_text_id);
     }
 
-    my $id = $tk_id->get_data or return 1;
+    # Nothing to do if Text is not initialized.
+    $tk_id->is_defined or return 1;
+    my $id = $tk_id->get_data;
 
-    if ( $text->is_changed ) {
+    if ( $text->is_changed and $text->is_scalar ) {
         $tk_canvas->itemconfigure( $id, -text => $text->get_data );
     }
 
@@ -65,7 +68,8 @@ sub task {
     return 1;
 }
 
-1;
+1
+__END__
 
 =head1 NAME
 

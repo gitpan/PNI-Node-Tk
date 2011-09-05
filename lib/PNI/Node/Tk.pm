@@ -1,8 +1,9 @@
 package PNI::Node::Tk;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
-1;
+1
+__END__
 
 =head1 NAME
 

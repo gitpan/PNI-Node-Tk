@@ -1,6 +1,9 @@
 Revision history for Perl extension PNI::Node::Tk.
 
-0.14  2011-xx-xx
+0.15  2011-09-02
+    - PNI::Node::Tk::GetOpenFile
+
+0.14  2011-07-25
     - removed templates
     - fixed pods
 

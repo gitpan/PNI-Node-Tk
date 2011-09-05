@@ -9,7 +9,7 @@ sub init {
 
     my $responsiveness = $node->add_input('responsiveness');
 
-    my $main_window = $node->add_output('main_window');
+    my $main_window = $node->add_output('object');
 
     $responsiveness->set_data(10);
 
@@ -63,7 +63,7 @@ it is possible to create more than one Tk::MainWindow PNI node.
 
 =over 4
 
-=item main_window
+=item object
 
 =back
 

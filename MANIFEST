@@ -3,15 +3,17 @@ lib/PNI/Node/Tk.pm
 lib/PNI/Node/Tk/Canvas.pm
 lib/PNI/Node/Tk/Canvas/Rectangle.pm
 lib/PNI/Node/Tk/Canvas/Text.pm
+lib/PNI/Node/Tk/GetOpenFile.pm
 lib/PNI/Node/Tk/MainWindow.pm
 Makefile.PL
 MANIFEST
 README
 t/__classes.t
-t/_node-tk-canvas-rectangle.t
-t/_node-tk-canvas-text.t
-t/_node-tk-canvas.t
-t/_node-tk-mainwindow.t
+t/_canvas-rectangle.t
+t/_canvas-text.t
+t/_canvas.t
+t/_getopenfile.t
+t/_mainwindow.t
 t/all_pod_files_ok.t
 t/every_node_has_a_test.t
 META.yml                                 Module meta-data (added by MakeMaker)

@@ -8,7 +8,7 @@ if ( not $ENV{TEST_AUTHOR} ) {
     plan( skip_all => $msg );
 }
 
-my $find = PNI::Finder->new;
+my $find = PNI::Finder->instance;
 
 my @core_nodes_dirs;
 my $node_dir_path = File::Spec->catfile(qw(lib PNI Node));
